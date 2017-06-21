@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src='./../node_modules/vue/dist/vue.js'>
+
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+        <todo-item v-for='item in groceryList' v-bind:todo='item'></todo-item>
+        <button @click='buttonclick'>填加</button>
+    </div>
+
+    <div id='app1'>
+        <div v-html='rawHtml' v-bind:id='dynamicId'></div>
+        <div v-bind:disabled='someDynamicCondition'>看我</div>
+        <input type="text" v-model='message'>
+        <div>{{isnot?"OK":"NO"}}</div>
+    </div>
+</body>
+
+<script>
+        //1,创建一个组件
+        Vue.component('todo-item', {
+            props: ['todo'],
+            template: '<li>{{todo.text}}</li>'
+        })
+
+        var vm1 = new Vue({
+            el: "#app",
+            props:{
+                'dynamicId':'12'
+                },
+            data: {
+                groceryList: [
+                    { text: 'sjaoq1' },
+                    { text: 'sjaoq2' },
+                    { text: 'sjaoq3' }
+                ]
+            },
+            methods: {
+                buttonclick: function () {
+                    this.groceryList.push({ text: 'shaoqi' + (this.groceryList.length + 1) })
+                }
+            }
+        })
+
+        var vm2 = new Vue({
+            el: "#app1",
+            data: {
+                message: 'hello world!',
+                rawHtml: '<div>22</div>',
+                dynamicId:1,
+                someDynamicCondition:'none',
+                isnot:false
+            },
+            beforeCreate: function () {
+                console.log('beforeCreate:' + this)
+            },
+            created: function () {
+                console.log('Create:' + this)
+            },
+
+        })
+
+        vm2.$watch('message', function (newVal, oldVal) {
+            alert('通过$watc的方式添加修改功能' + newVal)
+        })
+
+</script>
+
+</html>

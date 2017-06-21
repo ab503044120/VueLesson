@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./../node_modules/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{ message }}
+        <p>双向绑定</p>
+        <input type="text" v-model='message'>
+    </div>
+
+    <p>v-if的指令</p>
+    <div id='app1'>
+        <h1>Hello, Vue.js!</h1>
+        <h1 v-if="yes">Yes!</h1>
+        <h1 v-if="no">No!</h1>
+        <h1 v-if="age>16">age:{{age}}</h1>
+        <h1 v-if="name.indexOf('jack') >= 0">Name: {{ name }}</h1>
+    </div>
+
+    <p>v-show的指令 和if的效果差不多 只是将display的css样式设置为none</p>
+    <div id='app2'>
+        <h1>Hello, Vue.js!</h1>
+        <h1 v-show="yes">Yes!</h1>
+        <h1 v-show="no">No!</h1>
+        <h1 v-show="age>16">age:{{age}}</h1>
+        <h1 v-show="name.indexOf('jack') >= 0">Name: {{ name }}</h1>
+    </div>
+
+    <p>v-else的指令 要和if指令和show一起 否者不会被识别</p>
+    <div id='app3'>
+        <h1 v-if="age >= 25">Age: {{ age }}</h1>
+        <h1 v-else>Name: {{ name }}</h1>
+        <h1>---------------------分割线---------------------</h1>
+        <h1 v-show="name.indexOf('keep') >= 0">Name: {{ name }}</h1>
+        <h1 v-else>Sex: {{ sex }}</h1>
+    </div>
+
+    <p>v-for的指令</p>
+    <div id='app4'>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Sex</th>
+                </tr>
+            </thead>
+            <tr v-for="per in people">
+                <td>{{ per.name }}</td>
+                <td>{{ per.age }}</td>
+                <td>{{ per.sex }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p>v-on 事件绑定</p>
+    <div id='app5'>
+        <p v-on:click='greet'>v-on:click</p>
+        <a @click='greet'>@click</a>
+    </div>
+
+    
+     <h1>---------------------分割线---------------------</h1>
+
+<script>
+    //这是我们的model
+    var exampleData = {
+        message: 'Hello World!'
+    }
+
+    //vue的实例
+    new Vue({
+        el: '#app',
+        data: exampleData
+    })
+
+    //vm viewmodel
+    var vm = new Vue({
+        el: '#app1',
+        data: {
+            yes: true,
+            no: false,
+            age: 28,
+            name: 'keepfool'
+        }
+    })
+
+    var vm2 = new Vue({
+        el: '#app2',
+        data: {
+            yes: true,
+            no: false,
+            age: 28,
+            name: 'keepfool'
+        }
+    })
+
+    var vm3 = new Vue({
+        el: '#app3',
+        data: {
+            age: 28,
+            name: 'keepfool',
+            sex: 'Male'
+        }
+
+    })
+
+    var vm4 = new Vue({
+        el: '#app4',
+        data: {
+            people: [{
+                name: 'Jack',
+                age: 30,
+                sex: 'Male'
+            }, {
+                name: 'Bill',
+                age: 26,
+                sex: 'Male'
+            }, {
+                name: 'Tracy',
+                age: 22,
+                sex: 'Female'
+            }, {
+                name: 'Chris',
+                age: 36,
+                sex: 'Male'
+            }]
+        }
+    })
+
+    var vm5 = new Vue({
+        el: "#app5",
+        data: { message: 'Hello, Vue.js!' },
+        methods: {
+            greet: function () { //this只想vm
+                alert(this.message)
+            }
+        }
+    })
+
+</script>
+
+</html>
