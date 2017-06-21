@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./../node_modules/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='example1'>
+        <ul>
+            <li v-for='(item,index) in Items'>{{index+item.message}}
+            </li>
+        </ul>
+
+        当然可以多个循环
+        <ul>
+            <template v-for='(item,index) in Items'>
+                <li>{{index+item.message}}</li>
+                <li>ddd</li>
+            </template>
+        </ul>
+    </div>
+
+
+    迭代对象
+    <ul id='repeat-object'>
+        <li v-for='(key,value,index) in object'>
+            {{index+":"+value+key}}
+        </li>
+    </ul>
+
+    迭代正数(还是要挂载到vue的实例下面)
+    <ul id='test'>
+        <li v-for='n in 10'>
+           {{n}}
+        </li>
+    </ul>
+
+    
+
+</body>
+<script>
+    new Vue({
+        el: "#example1",
+        data: {
+            Items: [
+                { message: 'ss' },
+                { message: '22' }
+            ]
+        }
+    })
+
+    new Vue({
+        el: '#repeat-object',
+        data: {
+            object: {
+                FirstName: 'John',
+                LastName: 'Doe',
+                Age: 30
+            }
+        }
+    })
+
+    new Vue({
+        el:"#test"
+    })
+
+</script>
+
+</html>

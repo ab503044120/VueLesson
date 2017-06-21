@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./../node_modules/vue/dist/vue.js">
+
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='example1'>
+        <h1 v-if="ok">Yes</h1>
+        <h1 v-else>No</h1>
+        多个元素可以使用 template进行包装，本身标签不会被显示
+        <template v-if="ok">
+            <h1>Title</h1>
+            <p>Paragraph 1</p>
+            <p>Paragraph 2</p>
+        </template>
+        <template v-else>
+            <h1>1Title</h1>
+            <p>1Paragraph 1</p>
+            <p>1Paragraph 2</p>
+        </template>
+    </div>
+
+    <div id='example2'>
+        <div v-if="type === 'A'">
+            A
+        </div>
+        <div v-else-if="type === 'B'">
+            B
+        </div>
+        <div v-else-if="type === 'C'">
+            C
+        </div>
+        <div v-else>
+            Not A/B/C
+        </div>
+    </div>
+
+    v-show的作用和v-if一样 不过不同的是 v-show还是会渲染到html中。 如果频繁的切换css的话建议使用v-show
+</body>
+
+<script>
+    new Vue({
+        el: '#example1',
+        data: {
+            'ok': true
+        }
+    })
+
+    new Vue({
+        el:'#example2',
+        data:{
+            type:'A'
+        }
+    })
+
+</script>
+
+</html>

@@ -1,12 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src='./../node_modules/vue/dist/vue.js'></script>
     <title>Document</title>
 </head>
+
 <body>
-    
+    <a>通过数组的形式将class样式名字付给选中的div,在数组中可以使用二元表达式,</a>
+    <div id='example1'>
+        <div v-bind:class="[activeClass, errorClass]">通过数组的形式将class样式名字付给选中的div </div>
+        <div v-bind:class="[isactive?'':activeClass, errorClass]">在数组中可以使用二元表达式 </div>
+        <div v-bind:class="[{activeClass:isactive}, errorClass]">当然也可以使用对象的语法 </div>
+    </div>
+
+    ---------------------------
+    <a>绑定内联样式 使用style</a>
+    <div id='example2'>
+        <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">内联样式的对象语法 </div>
+
+        <div v-bind:style=" styleObject">内联样式的对象语法 可以直接等于对象 </div>
+
+        <div v-bind:style='[colorStyle,fontSizeStyle]'>多个样式可以通过数组进行叠加</div>
+    </div>
 </body>
+
+<script>
+    new Vue({
+        el: '#example1',
+        data: {
+            activeClass: 'active',
+            errorClass: 'text-danger',
+            isactive: true,
+            styleObject: {
+                color: 'red',
+                fontSize: '40px'
+            }
+        }
+    })
+
+    new Vue({
+        el: "#example2",
+        data: {
+            activeColor: 'red',
+            fontSize: 30,
+            styleObject: {
+                color: 'red',
+                fontSize: '40px'
+            },
+            colorStyle: {
+                color: 'red'
+            },
+            fontSizeStyle: {
+                fontSize: '13px'
+            }
+        }
+    })
+
+</script>
+
 </html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./../node_modules/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='example'>
+        <button @click='greet'>Greet</button> 方便使用
+        <!-- 阻止单击事件冒泡 -->
+        <a v-on:click.stop="doThis"></a>
+        <!-- 提交事件不再重载页面 -->
+        <form v-on:submit.prevent="onSubmit"></form>
+        <!-- 修饰符可以串联  -->
+        <a v-on:click.stop.prevent="doThat"></a>
+        <!-- 只有修饰符 -->
+        <form v-on:submit.prevent></form>
+        <!-- 添加事件侦听器时使用事件捕获模式 -->
+        <div v-on:click.capture="doThis">...</div>
+        <!-- 只当事件在该元素本身（而不是子元素）触发时触发回调 -->
+        <div v-on:click.self="doThat">...</div>
+    </div>
+
+    <div id='example1'>
+        <input type="checkbox" id="jack" value="Jack1" v-model="checkedNames">
+        <label >Jack</label>
+        <input type="checkbox" id="john" value="John" v-model="checkedNames">
+        <label >John</label>
+        <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+        <label >Mike</label>
+        <br>
+        <span>Checked names: {{ checkedNames }}</span>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#example',
+        data: {
+            name: 'Vue.js'
+        },
+        methods: {
+            greet: function (event) {
+                alert('Hello ' + this.name + '!')
+                // `event` 是原生 DOM 事件
+                alert(event.target.tagName)
+            }
+        }
+    })
+
+    new Vue({
+        el: '#example1',
+        data: {
+            checkedNames: []
+        }
+    })
+
+</script>
+
+</html>
