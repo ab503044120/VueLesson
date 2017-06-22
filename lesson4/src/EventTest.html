@@ -22,6 +22,27 @@
 
         </custominput>
     </div>
+
+
+    slot(插槽) 分发内容 当组合组件的时候 便会使用到slot的方法 单个的slot
+    <div id='test2'>
+        <my-component>
+            <p>我是父控件中的</p>
+        </my-component>
+        <my-component>
+            <p slot='shaoqi'>我是在上面的，带名字的slot</p>
+            <p>我是父控件中的</p>
+        </my-component>
+    </div>
+
+    传递数据 需要和template一起进行使用  数据  从子控件传递到父控件 父控件可以控制样式
+    <div id='test3'>
+        <child >
+            <template scope="test">
+            <p>{{test.text}}</p>
+            </template>
+        </child>
+    </div>
 </body>
 <script>
     var child = {
@@ -96,6 +117,42 @@
             }
         }
     })
+
+</script>
+
+<script>
+    var child = {
+        template: '\
+        <div>\
+        <h2>我是子组件的标题</h2>\
+        <slot>\
+        只有在没有要分发的内容时才会显示。\
+        </slot>\
+        <slot name="shaoqi">\
+        只有在没有要分发的内容时才会显示。\
+        </slot>\
+        </div>\
+        ',
+    }
+
+    new Vue({
+        el: "#test2",
+        components: {
+            'my-component': child
+        }
+    })
+
+
+    var chile={
+        template:'<div class="child"><slot text="hello from child"></slot></div>'
+    }
+
+    new Vue({
+        el:"#test3",
+        components:{
+            'child':chile
+        }
+    });
 
 </script>
 
