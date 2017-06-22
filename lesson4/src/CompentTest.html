@@ -12,11 +12,123 @@
 <body>
     组件的使用
     <div id='example1'>
+        <my-componet></my-componet>
+        <my-componet2></my-componet2>
+
+        <table>
+            <tr is='my-row'></tr>
+            <tr is='my-row'></tr>
+            <tr is='my-row'></tr>
+        </table>
+    </div>
+    data的使用
+    <div id='example2'>
+        <simple-counter></simple-counter>
+        <simple-counter></simple-counter>
+        <simple-counter></simple-counter>
+    </div>
+
+    prop 向父组件向子组件里面传递数据(注册控件的名称的时候 名称为小写) 当然可以进行动态的绑定
+    <div id='example3'>
+        <input v-model="parentMsg">
+        <childcomponts message='shaoqi'></childcomponts>
+        <childcomponts message='nihao'></childcomponts>
+        <childcomponts v-bind:message='parentMsg'></childcomponts>
 
     </div>
 </body>
 
 <script>
+    //注册组件(全局注册)
+    Vue.component('my-componet', {
+        //选项
+        template: '<div>A custom component!</div>'
+    })
+
+    //只能在父组件中使用
+    var child = {
+        template: '<div>A custom component2</div>'
+    }
+
+    var child2 = {
+        template: '<div>my row</div>'
+    }
+    //创建根实例
+    new Vue({
+        el: "#example1",
+        components: {
+            'my-componet2': child,
+            'my-row': child2
+        }
+    })
+
+    var data = { counter: 0 };
+
+    var child3 = {
+        template: "<button v-on:click='Click'>{{counter}}</button>",
+        data: function () {
+            // return data; //返回的是一个指针，所有的模板指向的都是这个对象。
+            return { counter: 0 }//返回的是一个单独的对象。
+        },
+        methods: {
+            Click: function () {
+                this.counter += 1
+            }
+        }
+    }
+
+    new Vue({
+        el: "#example2",
+        components: {
+            'simple-counter': child3
+        }
+    })
+
+
+    var child5 = {
+        props: {
+            //什么类型都可以
+            message: null,
+            // 基础类型检测 （`null` 意思是任何类型都可以）
+            propA: Number,
+            // 多种类型
+            propB: [String, Number],
+            // 必传且是字符串
+            propC: {
+                type: String,
+                required: true
+            },
+            // 数字，有默认值
+            propD: {
+                type: Number,
+                default: 100
+            },
+            // 数组／对象的默认值应当由一个工厂函数返回
+            propE: {
+                type: Object,
+                default: function () {
+                    return { message: 'hello' }
+                }
+            },
+            // 自定义验证函数
+            propF: {
+                validator: function (value) {
+                    return value > 10
+                }
+            }
+        },
+        template: '<span>{{ message }}</span>'
+    }
+
+    new Vue({
+        el: "#example3",
+        data: {
+            'parentMsg': 'shaoqi'
+        },
+        components: {
+            'childcomponts': child5
+        }
+    })
 
 </script>
 
