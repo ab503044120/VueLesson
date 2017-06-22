@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src='./../node_modules/vue/dist/vue.js'></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='example1'> 
+        <input type="checkbox" v-model='toggle' v-bind:true-value='a'>
+
+        <input type='text' v-model.number="age" v-on:change='change'>
+    </div>
+</body>
+
+<script>
+    new Vue({
+        el:'#example1',
+        data:{
+            toggle:true,
+            a:true,
+            b:false,
+            age:1
+        },
+        methods:{
+            change:function()
+            {
+                alert(this.age)
+            }
+        }
+    })
+</script>
+
+</html>
