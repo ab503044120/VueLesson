@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src='./../node_modules/vue/dist/vue.js'></script>
+    <title>Document</title>
+</head>
+
+<body>
+    直接使用Template，只不过template的代码太多而且太繁琐
+    <div id='example1'>
+        <anchored-heading :level=1>Hello World</anchored-heading>
+    </div>
+
+    使用Render的函数,竟然也有CreateElement
+    <div id='example2'>
+        <anchored-heading :level=1>
+            <P>Hello World2</p>,并没有使用Template</anchored-heading>
+    </div>
+
+    使用Render实现树形的结构
+    <div id='example3'>
+        <node-child :level=1>
+          <p>父1</p>
+          <node-child :level=3>子1</node-child>
+          <node-child :level=3>子1</node-child>
+        </node-child>
+    </div>
+
+    <script type="text/x-template" id="anchored-heading-template">
+        <div>
+            <h1 v-if="level === 1">
+                <slot></slot>
+            </h1>
+            <h2 v-if="level === 2">
+                <slot></slot>
+            </h2>
+            <h3 v-if="level === 3">
+                <slot></slot>
+            </h3>
+            <h4 v-if="level === 4">
+                <slot></slot>
+            </h4>
+            <h5 v-if="level === 5">
+                <slot></slot>
+            </h5>
+            <h6 v-if="level === 6">
+                <slot></slot>
+            </h6>
+        </div>
+    </script>
+</body>
+
+<script>
+    var child = {
+        template: "#anchored-heading-template",
+        props: {
+            level: {
+                type: Number,
+                required: true
+            }
+        }
+    }
+
+    new Vue({
+        el: "#example1",
+        components: {
+            "anchored-heading": child
+        }
+    })
+
+    var child2 = {
+        render: function (createElement) {
+            return createElement(
+                'h' + this.level,   // tag name 标签名称
+                this.$slots.default // 子组件中的阵列
+            )
+        },
+        props: {
+            level: {
+                type: Number,
+                required: true
+            }
+        }
+    }
+
+    new Vue({
+        el: "#example2",
+        components: {
+            "anchored-heading": child
+        }
+    })
+
+    var getChildrenTextContext = function (children) {
+        debugger
+        return children.map(function (node) {
+            return node.children ? getChildrenTextContext(node.children) : node.text
+        }).join("")
+    }
+
+    var child3 = {
+        render: function (createElement) {
+            var headingId = getChildrenTextContext(this.$slots.default).toLowerCase()
+                .replace(/\W+/g, '-')
+                .replace(/(^\-|\-$)/g, '')
+
+            return createElement(
+                "h" + this.level,
+                [
+                    createElement('a', {
+                        attrs: {
+                            name: headingId,
+                            href: "#" + headingId
+                        },
+                    }, this.$slots.default)
+                ]
+            )
+        },
+        props: {
+            level: {
+                type: Number,
+                required: true
+            }
+        }
+    }
+
+    new Vue({
+        el: "#example3",
+        components: {
+            "NodeChild": child3
+        }
+
+    })
+
+</script>
+
+</html>
