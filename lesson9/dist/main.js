@@ -166,343 +166,16 @@ module.exports = function normalizeComponent (
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Components_app_vue__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Components_app_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Components_app_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_App_vue__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_App_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_App_vue__);
 
 
 
-new __WEBPACK_IMPORTED_MODULE_1_vue__["a" /* default */](__WEBPACK_IMPORTED_MODULE_0__Components_app_vue___default.a);
-
+new __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */](__WEBPACK_IMPORTED_MODULE_1__components_App_vue___default.a);
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(3),
-  /* template */
-  __webpack_require__(10),
-  /* styles */
-  null,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "E:\\project\\gitVue\\lesson8\\src\\Components\\app.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] app.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7276ded0", Component.options)
-  } else {
-    hotAPI.reload("data-v-7276ded0", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 3 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fatherComponents_vue__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fatherComponents_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__fatherComponents_vue__);
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    el: '#test',
-    components: {
-        father: __WEBPACK_IMPORTED_MODULE_0__fatherComponents_vue___default.a
-    },
-    methods: {
-        selfClick: function () {
-            alert("父组件触发了自己的事件！" + this.NumberAPP);
-        }
-    }
-});
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(5),
-  /* template */
-  __webpack_require__(9),
-  /* styles */
-  null,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "E:\\project\\gitVue\\lesson8\\src\\Components\\fatherComponents.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] fatherComponents.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-5a72fdf3", Component.options)
-  } else {
-    hotAPI.reload("data-v-5a72fdf3", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 5 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sonComponents_vue__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sonComponents_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__sonComponents_vue__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    name: 'father',
-    components: {
-        son: __WEBPACK_IMPORTED_MODULE_0__sonComponents_vue___default.a
-    },
-    data: function () {
-        return {
-            NumFather: 0,
-            sonSelect: ""
-        };
-    },
-    methods: {
-        FatherClick: function () {
-            this.NumFather += 1;
-        },
-        GetData: function (sonValue) {
-            this.sonSelect = sonValue;
-        }
-    }
-});
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(7),
-  /* template */
-  __webpack_require__(8),
-  /* styles */
-  null,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "E:\\project\\gitVue\\lesson8\\src\\Components\\sonComponents.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] sonComponents.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-08b7b6b7", Component.options)
-  } else {
-    hotAPI.reload("data-v-08b7b6b7", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 7 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    name: 'test1',
-    props: ['fatherData'],
-    data() {
-        return {
-            items: [{ id: 1, text: "1", select: false }, { id: 2, text: "2", select: false }, { id: 3, text: "3", select: false }, { id: 4, text: "4", select: false }],
-            SelectNum: ""
-        };
-    },
-    methods: {
-        SelectClick: function (a) {
-
-            this.SelectNum = a.text;
-            for (var i = 0; i < a; i++) {
-                //this.$set(this.items[i].select, false)
-                this.items[i].select = false;
-            }
-            //this.$set(this.items[(a.id-1)].select, true)
-            a.select = true;
-
-            this.$emit('passData', a.text);
-        }
-    }
-});
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_vm._v("\n    我是子控件\n    "), _c('ul', {
-    staticClass: "test1"
-  }, _vm._l((_vm.items), function(item) {
-    return _c('li', {
-      key: item.id,
-      class: {
-        active: item.select
-      },
-      attrs: {
-        "value": item.id
-      },
-      on: {
-        "click": function($event) {
-          _vm.SelectClick(item)
-        }
-      }
-    }, [_vm._v("\n            " + _vm._s(item.text) + "\n        ")])
-  })), _vm._v("\n\n    " + _vm._s(_vm.fatherData) + " 点击的值" + _vm._s(_vm.SelectNum) + "\n")])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-08b7b6b7", module.exports)
-  }
-}
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "father",
-    attrs: {
-      "id": "father"
-    }
-  }, [_vm._v("\n    我是父组件"), _c('p', [_vm._v("子控件选中了" + _vm._s(_vm.sonSelect))]), _vm._v(" "), _c('button', {
-    on: {
-      "click": _vm.FatherClick
-    }
-  }, [_vm._v("自身的事件点击了" + _vm._s(_vm.NumFather) + "次")]), _vm._v(" "), _c('son', {
-    attrs: {
-      "fatherData": _vm.NumFather
-    },
-    on: {
-      "passData": _vm.GetData
-    }
-  })], 1)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-5a72fdf3", module.exports)
-  }
-}
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "app",
-    attrs: {
-      "id": "app"
-    }
-  }, [_c('p', [_vm._v("我是App")]), _vm._v(" "), _c('button', {
-    on: {
-      "click": _vm.selfClick
-    }
-  }, [_vm._v("触发自己的事件")]), _vm._v(" "), _c('button', [_vm._v("获得子控件的值")]), _vm._v(" "), _c('father')], 1)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-7276ded0", module.exports)
-  }
-}
-
-/***/ }),
-/* 11 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7643,10 +7316,10 @@ setTimeout(function () {
 
 /* harmony default export */ __webpack_exports__["a"] = (Vue$3);
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(12), __webpack_require__(13)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(3), __webpack_require__(4)))
 
 /***/ }),
-/* 12 */
+/* 3 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -7836,7 +7509,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 13 */
+/* 4 */
 /***/ (function(module, exports) {
 
 var g;
@@ -7861,6 +7534,275 @@ try {
 
 module.exports = g;
 
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(6),
+  /* template */
+  __webpack_require__(13),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "E:\\project\\gitVue\\lesson9\\src\\components\\App.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] App.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-63ed496f", Component.options)
+  } else {
+    hotAPI.reload("data-v-63ed496f", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Display_vue__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Display_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Display_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Increment_vue__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Increment_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Increment_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    el: "#test",
+    data: function () {
+        return {
+            item: 0
+        };
+    },
+    components: {
+        dispaly: __WEBPACK_IMPORTED_MODULE_0__Display_vue___default.a,
+        Increment: __WEBPACK_IMPORTED_MODULE_1__Increment_vue___default.a
+    },
+    methods: {
+        GetData: function (Item) {
+            this.item = Item;
+        }
+        // ,
+        // watch:{
+        //     item:function(){
+        //         //调用子控件
+        //     }
+        // }
+    } });
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(8),
+  /* template */
+  __webpack_require__(9),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "E:\\project\\gitVue\\lesson9\\src\\components\\Display.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Display.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-13d52490", Component.options)
+  } else {
+    hotAPI.reload("data-v-13d52490", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 8 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["item"]
+});
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('h3', [_vm._v("Count is " + _vm._s(_vm.item))])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-13d52490", module.exports)
+  }
+}
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(11),
+  /* template */
+  __webpack_require__(12),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "E:\\project\\gitVue\\lesson9\\src\\components\\Increment.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Increment.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0fcc7986", Component.options)
+  } else {
+    hotAPI.reload("data-v-0fcc7986", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+
+  data: function () {
+    return {
+      item: 0
+    };
+  },
+  methods: {
+    AddMent: function () {
+      this.item += 1;
+      this.$emit("passData", this.item);
+    }
+  }
+});
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('button', {
+    on: {
+      "click": _vm.AddMent
+    }
+  }, [_vm._v(_vm._s(_vm.item) + "Increment +1")])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-0fcc7986", module.exports)
+  }
+}
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_vm._v("\n    AppItem的值" + _vm._s(_vm.item) + "\n    "), _c('dispaly', {
+    attrs: {
+      "item": _vm.item
+    }
+  }), _vm._v(" "), _c('Increment', {
+    on: {
+      "passData": _vm.GetData
+    }
+  })], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-63ed496f", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
