@@ -6,13 +6,11 @@
 
 <script>
 
-import { store } from './../vuex/store.js'
 
 export default ({
-  
   computed: {
     count() {
-      return store.state.count
+      return this.$store.state.count
     }
   }
 })
