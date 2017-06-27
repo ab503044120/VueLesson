@@ -16,6 +16,7 @@ const mutations = {
     [types.RECEIVE_PRODUCTS](state, { products }) {
         state.all = products
     },
+    //在cart.js中也有该状态 这样的话 可以取到不同文件中的state
     [types.ADD_TO_CART](state, { id }) {
         state.all.find(p => p.id === id).inventory--
     }

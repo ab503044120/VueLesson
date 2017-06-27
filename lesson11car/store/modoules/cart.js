@@ -13,10 +13,12 @@ const getters = {
 }
 
 //mutations 变动 只支持同步代码 对数据进行更改
-const mutations  = {
+const mutations = {
 
     [types.ADD_TO_CART](state, { id }) {
         state.lastCheckout = null
+        // const product = state.all.find(p => p.id == id)
+        // product.quatity--
         const record = state.added.find(p => p.id == id)
         if (!record) {
             //添加到购物车中
@@ -40,24 +42,24 @@ const mutations  = {
 
     [types.CHECKOUT_FAILURE](state, { saveCartItems }) {
         state.added = saveCartItems
+        alert("失败")
         state.checkoutStatus = 'fauled'
     },
 }
 
 //actions 支持异步 内部其实是调用mutations进行数据的更改
-const actions={
-    checkout({commit,state},products)
-    {
+const actions = {
+    checkout({ commit, state }, products) {
         //... 是解析语法
-        const savedCartItems=[...state.added]
+        const savedCartItems = [...state.added]
         //调用 检查请求 调用REQUEST的方法
-        commit(type.CHECKOUT_REQUEST);
+        commit(types.CHECKOUT_REQUEST);
 
-        shop.buyProducts(products,()=>commit(type.CHECKOUT_SUCCESS),()=>commit(type.CHECKOUT_FAILURE,{savedCartItems}))
+        shop.buyProducts(products, () => commit(types.CHECKOUT_SUCCESS), () => commit(types.CHECKOUT_FAILURE, { savedCartItems }))
     }
 }
 
-export default{
+export default {
     state,
     getters,
     actions,

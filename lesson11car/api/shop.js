@@ -10,7 +10,7 @@ export default {
     },
 
     //知道为什么有Random嘛  随机演示结账失败的情况
-    buyProducts(products, cd, errprCb) {
+    buyProducts(products, cd, errorCb) {
         setTimeout(() => {
             (Math.random() > 0.5 || navigator.userAgent.indexOf('PhantomJS') > -1)
                 ? cd()

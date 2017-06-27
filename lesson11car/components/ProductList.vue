@@ -1,8 +1,9 @@
 <template>
     <ul>
         <li v-for="p in products" :key='p.id'>
-            {{p.title}}-{{p.price}}<br>
-            <button @click="addToCart(p)">
+            {{p.title}}-{{p.price}} 库存 {{p.inventory}}
+            <br>
+            <button @click="addtoCart(p)">
                 Add to cart
             </button>
         </li>
@@ -17,7 +18,7 @@ export default {
         products: "allProducts"
     }),
     methods: mapActions([
-        "addToCart"
+        "addtoCart"
     ]),
     created() {
         this.$store.dispatch("getAllProducts")

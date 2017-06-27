@@ -8396,7 +8396,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "E:\\project\\gitVue\\lesson10\\src\\components\\App.vue"
+Component.options.__file = "F:\\project\\Vue\\lesson10\\src\\components\\App.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] App.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -8479,7 +8479,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "E:\\project\\gitVue\\lesson10\\src\\components\\Display.vue"
+Component.options.__file = "F:\\project\\Vue\\lesson10\\src\\components\\Display.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Display.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -8556,7 +8556,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "E:\\project\\gitVue\\lesson10\\src\\components\\Increment.vue"
+Component.options.__file = "F:\\project\\Vue\\lesson10\\src\\components\\Increment.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Increment.vue: functional components are not supported with templates, they should use render functions.")}
 
