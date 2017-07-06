@@ -8,6 +8,10 @@ const router=new vueRoute(
     }
 )
 
+router.beforeEach((to,from,next)=>{
+    
+})
+
 Vue.use(vueRoute);
 
 new Vue({
